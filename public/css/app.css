@@ -1,0 +1,184 @@
+@font-face {
+    font-family: source-serif;
+    src: url(../fonts/SourceSerifPro-Regular.ttf);
+}
+
+* {
+    font-family: source-serif;
+}
+
+.introImg {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border: 5px solid grey;
+    border-radius: 5%;
+}
+
+.mainTitle {
+    font-family: source-serif;
+    font-size: 30px;
+}
+
+.starHr {
+    width: 90%;
+    height: 20px;
+    border-bottom: 1px solid grey;
+    text-align: center;
+    margin: auto;
+}
+
+.star {
+    font-size: 50px;
+    background-color: white;
+    position: relative;
+    top: -15px;
+    color: grey;
+    padding: 0px 20px 0px 20px;
+}
+
+.smallStar {
+    font-size: 30px;
+    background-color: white;
+    position: relative;
+    top: -1px;
+    color: grey;
+    padding: 0px 20px 0px 20px;
+}
+
+.authCard {
+    width: 50%;
+}
+
+.authDiv {
+    height: 80vh;
+}
+
+.genderRadioDiv {
+    height: 100%;
+}
+
+.genderRadio {
+    border: 2px solid grey !important;
+    accent-color: #292B2C;
+    width: 20px;
+    height: 20px;
+}
+
+.quizCard {
+    background-color: transparent;
+    border: none;
+}
+
+.quizRadio {
+    border: 2px solid grey !important;
+    accent-color: #292B2C;
+    width: 30px;
+    height: 30px;
+}
+
+.quizText {
+    font-size: 25px;
+}
+
+.resultImg {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border: 5px solid grey;
+    border-radius: 5%;
+}
+
+.custom-shape-divider-bottom-1673586382 {
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.profileImg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.historyCard {
+    background-color: #CFCFCF;
+}
+
+.historyMajorImg {
+    width: 10vh;
+    height: 10vh;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+/* rating */
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+/* shape divider */
+.custom-shape-divider-bottom-1673586382 svg {
+    position: relative;
+    display: block;
+    width: calc(195% + 1.3px);
+    height: 102px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1673586382 .shape-fill {
+    fill: #292B2C;
+}
+
+@media only screen and (max-width: 576px) {
+    .authCard {
+        width: 100%;
+    }
+    .introImg {
+        height: 300px;
+    }
+    .resultImg {
+        height: 300px;
+    }
+  }
+
+/* tenors san font */
