@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Quiz extends Model
+class Rating extends Model
 {
     use HasFactory;
 
-    public function major()
-    {
-        return $this->belongsTo(Major::class, 'major_id');
-    }
+    protected $fillable = ['rate', 'feedback', 'recommendation_id'];
 }

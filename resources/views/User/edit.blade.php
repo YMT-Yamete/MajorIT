@@ -3,7 +3,7 @@
     <div class="container">
         <div class="mt-3">
             <div class="text-end">
-                <a href="{{ url('users/') }}" class="btn btn-dark">Back</a>
+                <a href="{{ url('users/' . Auth()->user()->id) }}" class="btn btn-dark">Back</a>
             </div>
             <div class="text-center my-3">
                 <img class="profileImg"

@@ -83,7 +83,9 @@ class QuizController extends Controller
         //
     }
 
-    public function showQuizPage() {
-        return view('Quiz.index');
+    public function showQuizPage(Request $request)
+    {
+        $quizzes = Quiz::inRandomOrder()->get();
+        return view('Quiz.index', compact('quizzes'));
     }
 }

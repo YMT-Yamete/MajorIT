@@ -1,40 +1,54 @@
 @extends('Layout.layout')
+
 <script>
     window.onload = function() {
-        var chart = new CanvasJS.Chart("chartContainer", {
+        var pieChart = new CanvasJS.Chart("pieChartContainer", {
             animationEnabled: true,
             exportEnabled: true,
             title: {
-                text: "The major recommendations received by the users."
+                text: ""
             },
             subtitles: [{
                 text: ""
             }],
             data: [{
                 type: "pie",
-                showInLegend: "true",
                 legendText: "{label}",
-                indexLabelFontSize: 16,
+                indexLabelFontSize: 10,
                 indexLabel: "{label} - #percent%",
-                yValueFormatString: "฿#,##0",
-                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                yValueFormatString: "#,##0",
+                dataPoints: <?php echo json_encode($majorData, JSON_NUMERIC_CHECK); ?>
             }]
         });
-        chart.render();
+
+        var barChart = new CanvasJS.Chart("barChartContainer", {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+                text: ""
+            },
+            axisY: {
+                title: "Number of Rates"
+            },
+            data: [{
+                type: "column",
+                dataPoints: <?php echo json_encode($ratingData, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        pieChart.render();
+        barChart.render();
     }
 </script>
+
 @section('content')
     <div class="container">
-        <div class="container my-3 text-center">
+        <div class="container my-4 text-center">
             <div>
-                <input type="button" class="btn mb-3">
-                <label class="btn btn-dark">Dashboard</label>
-                <input type="button" class="btn mb-3">
-                <label class="btn btn-outline-dark">Users</label>
-                <input type="button" class="btn mb-3">
-                <label class="btn btn-outline-dark">Quizzes</label>
-                <input type="button" class="btn mb-3">
-                <label class="btn btn-outline-dark">Recommendations</label>
+                <a href="{{ url('admin/') }}" class="btn btn-dark m-3">Dashboard</a>
+                <a href="{{ url('admin/users') }}" class="btn btn-outline-dark m-3">Users</a>
+                <a href="{{ url('admin/majors') }}" class="btn btn-outline-dark m-3">Majors</a>
+                <a href="{{ url('admin/quizzes') }}" class="btn btn-outline-dark m-3">Quizzes</a>
+                <a href="{{ url('admin/recommendations') }}" class="btn btn-outline-dark m-3">Recommendations</a>
             </div>
         </div>
         <div class="container">
@@ -51,7 +65,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3>150</h3>
+                                    <h3>{{ $users->count() }}</h3>
                                     <p>Users</p>
                                 </div>
                             </div>
@@ -68,7 +82,7 @@
                                     </svg>
                                 </div>
                                 <div class="mb-1">
-                                    <h3>150</h3>
+                                    <h3>{{ $recommendations->count() }}</h3>
                                     <p>Quizzes Taken</p>
                                 </div>
                             </div>
@@ -85,7 +99,7 @@
                                     </svg>
                                 </div>
                                 <div class="mb-1">
-                                    <h3>150</h3>
+                                    <h3>{{ $ratings->count() }}</h3>
                                     <p>Ratings</p>
                                 </div>
                             </div>
@@ -104,15 +118,29 @@
                                     </svg>
                                 </div>
                                 <div class="mb-1">
-                                    <h3>4/5</h3>
+                                    <h3>{{ $averageRating }}/5</h3>
                                     <p>User satisfaction</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="my-5">
-                        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-                        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="my-5 mx-4">
+                                    <div id="pieChartContainer" style="height: 370px; width: 100%;"></div>
+                                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                                    <h5 class="my-3">Major Recommendatoins Chart</h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="my-5 mx-4">
+                                    <div id="barChartContainer" style="height: 370px; width: 100%;"></div>
+                                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                                    <h5 class="my-3">Rating Chart</h5>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

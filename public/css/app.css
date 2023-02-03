@@ -125,35 +125,53 @@
     height: 46px;
     padding: 0 10px;
 }
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
 }
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
 }
-.rate:not(:checked) > label:before {
+
+.rate:not(:checked)>label:before {
     content: '★ ';
 }
-.rate > input:checked ~ label {
-    color: #ffc700;    
+
+.rate>input:checked~label {
+    color: #ffc700;
 }
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
 }
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
     color: #c59b08;
+}
+
+.genderError {
+    font-size: 13px;
+}
+
+.sticky-div {
+    background-color: white;
+    z-index: 100;
+    position: relative;
+    width: 80%;
+    padding: 30px 0px;
 }
 
 /* shape divider */
@@ -169,16 +187,26 @@
     fill: #292B2C;
 }
 
+/* datatable color */
+.page-item.active .page-link {
+    color: #fff !important;
+    background-color: #292B2C !important;
+    border-color: #292B2C !important;
+}
+
+
 @media only screen and (max-width: 576px) {
     .authCard {
         width: 100%;
     }
+
     .introImg {
         height: 300px;
     }
+
     .resultImg {
         height: 300px;
     }
-  }
+}
 
 /* tenors san font */
