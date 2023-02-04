@@ -8,7 +8,7 @@
     <div class="container">
         <div class="container py-5">
             @if (session()->has('msg'))
-                <div class="alert {{ session()->get('alertClass') }} alert-dismissible fade show authCard" role="alert">
+                <div class="alert {{ session()->get('alertClass') }} alert-dismissible fade show" role="alert">
                     {{ session()->get('msg') }}
                     <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

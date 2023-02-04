@@ -57,9 +57,20 @@ Route::middleware(['authMiddleware'])->group(function () {
         // Admin
         Route::prefix('admin')->group(function () {
             Route::get('/', [AdminController::class, 'index']);
+
             Route::get('/users', [AdminController::class, 'showUsersList']);
+
             Route::get('/majors', [AdminController::class, 'showMajorsList']);
+            Route::post('/majors/add', [AdminController::class, 'addNewMajor']);
+            Route::post('/majors/{id}/delete', [AdminController::class, 'deleteMajor']);
+            Route::get('/majors/{id}/edit', [AdminController::class, 'editMajor']);
+            Route::post('/majors/{id}/update', [AdminController::class, 'updateMajor']);
+
+
             Route::get('/quizzes', [AdminController::class, 'showQuizzesList']);
+            Route::post('/quizzes/add', [AdminController::class, 'addNewQuiz']);
+            Route::post('/quizzes/{id}/delete', [AdminController::class, 'deleteQuiz']);
+
             Route::get('/recommendations', [AdminController::class, 'showRecommendationsList']);
         });
     });
