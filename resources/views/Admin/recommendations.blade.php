@@ -26,39 +26,19 @@
                     <th>Recommended Major</th>
                     <th>Rating</th>
                     <th>Feedback</th>
-                    <th>Action</th>
+                    <th>Date</th>
                 </thead>
                 <tbody>
+                    @foreach ($recommendations as $recommendation)
                     <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>Business Information System</td>
-                        <td>5 stars</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio autem alias magni adipisci cupiditate ducimus veritatis dolor, amet nesciunt voluptates!</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm">Delete</button>
-                        </td>
+                        <td>{{ $recommendation->id }}</td>
+                        <td>{{ $recommendation->user_id }}</td>
+                        <td>{{ $recommendation->major->major }}</td>
+                        <td>{{ $recommendation->rating->rate }} stars</td>
+                        <td>{{ ($recommendation->rating->feedback == '') ? '-' : $recommendation->rating->feedback }}</td>
+                        <td>{{ $recommendation->date }}</td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>Business Information System</td>
-                        <td>5 stars</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio autem alias magni adipisci cupiditate ducimus veritatis dolor, amet nesciunt voluptates!</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>Business Information System</td>
-                        <td>5 stars</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio autem alias magni adipisci cupiditate ducimus veritatis dolor, amet nesciunt voluptates!</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm">Delete</button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

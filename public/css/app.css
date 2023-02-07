@@ -194,6 +194,11 @@
     border-color: #292B2C !important;
 }
 
+/* accordion customize color */
+.accordion {
+    --bs-accordion-active-bg: #292B2C;
+    --bs-accordion-active-color: white;
+}
 
 @media only screen and (max-width: 576px) {
     .authCard {

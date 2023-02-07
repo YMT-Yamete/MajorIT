@@ -72,7 +72,7 @@
                             <td>{{ $quiz->id }}</td>
                             <td>{{ $quiz->quiz }}</td>
                             <td>{{ $quiz->major->major }}</td>
-                            <form action="{{ url('/quizzes/' . $quiz->id . '/delete') }}" method="POST">
+                            <form action="{{ url('admin/quizzes/' . $quiz->id . '/delete') }}" method="POST">
                                 @csrf
                                 <td width="15%">
                                     <button class="btn btn-danger btn-sm">Delete</button>

@@ -127,7 +127,7 @@ class AdminController extends Controller
     }
 
     public function deleteQuiz($id)
-    {
+    {   
         Quiz::find($id)->delete();
         session()->flash('alertClass', 'btn-danger');
         return back()->with('msg', 'A quiz has been deleted successfully');
@@ -137,6 +137,7 @@ class AdminController extends Controller
 
     public function showRecommendationsList()
     {
-        return view('admin.recommendations');
+        $recommendations = Recommendation::all();
+        return view('admin.recommendations', compact('recommendations'));
     }
 }

@@ -15,4 +15,9 @@ class Recommendation extends Model
     {
         return $this->belongsTo(Major::class, 'major_id');
     }
+
+    public function rating()
+    {
+        return $this->hasOne(Rating::class, 'recommendation_id');
+    }
 }

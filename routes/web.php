@@ -7,6 +7,7 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\RecommendationController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\UserController;
+use App\Models\Major;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,8 @@ Route::get('/', function () {
 
 // Catelogue Page
 Route::get('/catalogues', function () {
-    return view('catalogue');
+    $majors = Major::all();
+    return view('catalogue', compact('majors'));
 });
 
 // Auth
