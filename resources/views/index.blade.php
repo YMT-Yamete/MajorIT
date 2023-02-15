@@ -8,13 +8,8 @@
                         class="introImg shadow-lg">
                 </div>
                 <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
-                    <h1 class="my-3 ">Lorem ipsum dolor sit amet consectetur.</h1>
-                    <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis at
-                        incidunt libero nemo
-                        maxime qui eum, dolor aliquam accusamus impedit sapiente illum? Blanditiis consequatur eaque
-                        enim cum iste mollitia provident voluptate quis iure nemo in consectetur, assumenda
-                        perferendis, nam itaque dolores obcaecati molestiae reprehenderit ipsum qui culpa earum!
-                        Temporibus, esse.</p>
+                    <h1 class="my-3 ">Major Recommendation System for UIT</h1>
+                    <p class="mainDescription">Explore the best IT major for you with our Major Recommendation System, MajorIT. Our platform utilizes a point-based system to recommend programs that match your personal preferences. Discover your options and make an informed decision about your academic future today!</p>
                     <div>
                         <a class="btn btn-dark py-3 " href="{{ url('/quizzes') }}">Start Test Now!</a>
                     </div>

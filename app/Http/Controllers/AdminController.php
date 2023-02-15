@@ -122,7 +122,7 @@ class AdminController extends Controller
                 'major_id' => $request->major_id,
             ]);
             session()->flash('alertClass', 'btn-success');
-            return back()->with('msg', 'New major has been added successfully');
+            return back()->with('msg', 'New quiz has been added successfully');
         }
     }
 

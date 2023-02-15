@@ -50,7 +50,6 @@ Route::middleware(['authMiddleware'])->group(function () {
 
     // Profile
     Route::get('/users/{id}', [UserController::class, 'viewUser']);
-    Route::get('/users/{id}/edit', [UserController::class, 'editUser']);
 
     // Rate
     Route::post('/results/{id}/rate', [RatingController::class, 'rateRecommendation']);

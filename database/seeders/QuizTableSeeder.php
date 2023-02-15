@@ -20,26 +20,37 @@ class QuizTableSeeder extends Seeder
         // HPC -> 3
         // BIS -> 4
         // CN -> 5
-        // ES -> 6
 
         $createMultipleQuizzes = [
-            ['quiz'=>'You like Software Engineering','major_id'=> 1],           
-            ['quiz'=>'You like Software Engineering 2','major_id'=> 1],           
+            // SE
+            ['quiz'=>'You have a passion for improving what is around you.','major_id'=> 1],           
+            ['quiz'=>'You always pay a sharp attention to detail.','major_id'=> 1],           
+            ['quiz'=>'You love making things creatively.','major_id'=> 1],   
+            ['quiz'=>'You have a passion for strategy games.','major_id'=> 1],   
             
-            ['quiz'=>'You like Knowledge Engineering','major_id'=> 2],           
-            ['quiz'=>'You like Knowledge Engineering 2','major_id'=> 2],
+            // KE
+            ['quiz'=>'You are curious about new technologies such as Artificial Intelligence, Robotics, etc.','major_id'=> 2],           
+            ['quiz'=>'You want to learn about how automated systems work','major_id'=> 2],
+            ['quiz'=>'You always wonder why computers are so good in playing chess.','major_id'=> 2],
+            ['quiz'=>'You want to make things smart.','major_id'=> 2],
             
-            ['quiz'=>'You like HPC','major_id'=> 3],           
-            ['quiz'=>'You like HPC 2','major_id'=> 3],
+            // HPC
+            ['quiz'=>'You always dreamt of working in scientific laboratories.','major_id'=> 3],           
+            ['quiz'=>'You enjoy using cloud-based services such as gmail, dropbox, etc.','major_id'=> 3],
+            ['quiz'=>'You always feel frustrated because of the slow computers and you want to fix them.','major_id'=> 3],
+            ['quiz'=>'It never fails to amaze you how computers are constructed.','major_id'=> 3],
             
-            ['quiz'=>'You like BIS','major_id'=> 4],           
-            ['quiz'=>'You like BIS 2','major_id'=> 4],
+            // BIS
+            ['quiz'=>'You are interested to learn how technology and business are complementing each other','major_id'=> 4],           
+            ['quiz'=>'You like works which let you communicate with many people.','major_id'=> 4],
+            ['quiz'=>'You often try to analyze and understand something in the business point of view','major_id'=> 4],
+            ['quiz'=>'You think that innovative business ideas can be developed with the help of technology.','major_id'=> 4],
             
-            ['quiz'=>'You like CN','major_id'=> 5],           
-            ['quiz'=>'You like CN 2','major_id'=> 5],
-            
-            ['quiz'=>'You like ES','major_id'=> 6],           
-            ['quiz'=>'You like ES 2','major_id'=> 6],
+            //CN
+            ['quiz'=>'You always wonder how communication through the internet is possible.','major_id'=> 5],           
+            ['quiz'=>'You are curious to know who is using your wifi and how to manage and secure it.','major_id'=> 5],
+            ['quiz'=>'Sometimes, when the internet connection is slow, you want to find out the issues and fix them.','major_id'=> 5],
+            ['quiz'=>'You are curious to know how the internet security works and how secure it is.','major_id'=> 5],
         ];
 
         DB::table('quizzes')->insert($createMultipleQuizzes);
