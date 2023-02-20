@@ -34,8 +34,8 @@
                         <td>{{ $recommendation->id }}</td>
                         <td>{{ $recommendation->user_id }}</td>
                         <td>{{ $recommendation->major->major }}</td>
-                        <td>{{ $recommendation->rating->rate }} stars</td>
-                        <td>{{ ($recommendation->rating->feedback == '') ? '-' : $recommendation->rating->feedback }}</td>
+                        <td>{{ isset($recommendation->rating) ? $recommendation->rating->rate . 'stars' : '-' }}</td>
+                        <td>{{ isset($recommendation->rating) ? (($recommendation->rating->feedback == '') ? '-' : $recommendation->rating->feedback) : '-' }}</td>
                         <td>{{ $recommendation->date }}</td>
                     </tr>
                     @endforeach
