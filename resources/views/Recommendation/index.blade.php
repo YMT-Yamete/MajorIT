@@ -15,30 +15,40 @@
                     </button>
                 </div>
             @endif
-            <div class="row">
-                <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
-                    <h3 class="my-5 text-center">You should major in "{{ $recommendation->major->major }}"</h3>
-                    <p class="">{{ $recommendation->major->description }}</p>
-                    <hr>
-                    @if ($ratingCount == 0)
-                        <button type="button" class="btn btn-dark my-3" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
-                            Rate this result
-                        </button>
-                    @else
-                        <button class="btn btn-dark my-3" disabled>
-                            Rating Submitted
-                        </button>
-                    @endif
-                    <a type="button" class="btn" href="{{ url('/') }}">
-                        Back to Home Page
-                    </a>
+            @if (count($major_recommendations) > 1)
+                <h2 class="mb-5 text-center">
+                    You should consider following majors.
+                </h2>
+            @endif
+            @foreach ($major_recommendations as $major_recommendation)
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+                        <h3 class="my-5 text-center">You should major in
+                            "{{ $major_recommendation->major->major }}"</h3>
+                        <p class="">{{ $major_recommendation->major->description }}</p>
+                        <hr>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+                        <img src="https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGJsYWNrJTIwYW5kJTIwd2hpdGUlMjB0ZWNobm9sb2d5fGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+                            class="resultImg shadow-lg">
+                        <h4 class="my-4">{{ $major_recommendation->major->major }}</h4>
+                    </div>
                 </div>
-                <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
-                    <img src="https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGJsYWNrJTIwYW5kJTIwd2hpdGUlMjB0ZWNobm9sb2d5fGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-                        class="resultImg shadow-lg">
-                    <h4 class="mt-4">{{ $recommendation->major->major }}</h4>
-                </div>
+            @endforeach
+            <div>
+                @if ($ratingCount == 0)
+                    <button type="button" class="btn btn-dark my-3" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Rate this result
+                    </button>
+                @else
+                    <button class="btn btn-dark my-3" disabled>
+                        Rating Submitted
+                    </button>
+                @endif
+                <a type="button" class="btn" href="{{ url('/') }}">
+                    Back to Home Page
+                </a>
             </div>
         </div>
         <div class="starHr">
@@ -50,7 +60,7 @@
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form action="{{ url('results/' . $recommendation->id . '/rate') }}" method="POST">
+            <form action="{{ url('results/' . $major_recommendations[0]->recommendation_id . '/rate') }}" method="POST">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">

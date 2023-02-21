@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Major;
+use App\Models\MajorRecommendation;
 use App\Models\Rating;
 use App\Models\Recommendation;
 use Illuminate\Http\Request;
@@ -12,9 +13,9 @@ class RecommendationController extends Controller
     public function showRecommendation($id)
     {
         if (count(Recommendation::where('id', $id)->where('user_id', Auth()->user()->id)->get()) > 0) {
-            $recommendation = Recommendation::find($id);
+            $major_recommendations = MajorRecommendation::where("recommendation_id", "=", $id)->get();
             $ratingCount = count(Rating::where('recommendation_id', $id)->get());
-            return view('Recommendation.index', compact('recommendation', 'ratingCount'));
+            return view('Recommendation.index', compact('major_recommendations', 'ratingCount'));
         }
     }
 
@@ -40,13 +41,27 @@ class RecommendationController extends Controller
             }
         }
 
-        $recommended_major = array_search(max($scores_array), $scores_array);
+        // get all majors with highest score
+        $recommended_majors = [];
+        foreach($scores_array as $major => $score) {
+            if($score == max($scores_array)) {
+                array_push($recommended_majors, $major);
+            }
+        }
 
+        // create new recommendation
         $recommendation = Recommendation::create([
             'user_id' => Auth()->user()->id,
-            'major_id' => Major::where('major', $recommended_major)->first()->id,
             'date' => date("Y-m-d"),
         ]);
+
+        // add recommended majors
+        foreach ($recommended_majors as $recommended_major) {
+            MajorRecommendation::create([
+                'major_id' => Major::where('major', '=', $recommended_major)->get()->first()->id,
+                'recommendation_id' => $recommendation->id,
+            ]);
+        }
 
         return redirect('calculating')->with('recommendation_id', $recommendation->id);;
     }

@@ -30,14 +30,21 @@
                 </thead>
                 <tbody>
                     @foreach ($recommendations as $recommendation)
-                    <tr>
-                        <td>{{ $recommendation->id }}</td>
-                        <td>{{ $recommendation->user_id }}</td>
-                        <td>{{ $recommendation->major->major }}</td>
-                        <td>{{ isset($recommendation->rating) ? $recommendation->rating->rate . 'stars' : '-' }}</td>
-                        <td>{{ isset($recommendation->rating) ? (($recommendation->rating->feedback == '') ? '-' : $recommendation->rating->feedback) : '-' }}</td>
-                        <td>{{ $recommendation->date }}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ $recommendation->id }}</td>
+                            <td>{{ $recommendation->user_id }}</td>
+                            <td>
+                                <ul>
+                                    @foreach ($recommendation->major_recommendations as $major_recommendation)
+                                        <li>{{ $major_recommendation->major->major }}</li>
+                                    @endforeach
+                                </ul>
+                            </td>
+                            <td>{{ isset($recommendation->rating) ? $recommendation->rating->rate . ' stars' : '-' }}</td>
+                            <td>{{ isset($recommendation->rating) ? ($recommendation->rating->feedback == '' ? '-' : $recommendation->rating->feedback) : '-' }}
+                            </td>
+                            <td>{{ $recommendation->date }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

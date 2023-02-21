@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Major;
+use App\Models\MajorRecommendation;
 use App\Models\Quiz;
 use App\Models\Rating;
 use App\Models\Recommendation;
@@ -26,7 +27,7 @@ class AdminController extends Controller
         foreach ($majors as $major) {
             $majorArray[] = array(
                 "label" => $major->major,
-                "y" => Recommendation::where('major_id', $major->id)->get()->count()
+                "y" => MajorRecommendation::where('major_id', $major->id)->get()->count()
             );
         }
         $majorData = $majorArray;

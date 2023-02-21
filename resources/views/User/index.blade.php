@@ -21,7 +21,7 @@
                                 <div class="mx-5">
                                     <div class="row">
                                         <div class="col d-flex align-items-center">
-                                            {{ $recommendation->major->major }} (<span style="font-size: 12px;">{{ $recommendation->date }}</span>)
+                                            Recommendation {{$recommendation->id}} (<span style="font-size: 12px;">{{ $recommendation->date }}</span>)
                                         </div>
                                         <div class="col">
                                             <div class="d-flex justify-content-end align-items-center">

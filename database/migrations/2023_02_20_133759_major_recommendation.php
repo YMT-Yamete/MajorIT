@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('recommendations', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->date('date');
+        Schema::create('major_recommendations', function (Blueprint $table) {
+            $table->integer("major_id");
+            $table->integer("recommendation_id");
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recommendations');
+        Schema::dropIfExists('major_recommendations');
     }
 };
